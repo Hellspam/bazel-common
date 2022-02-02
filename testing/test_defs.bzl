@@ -29,6 +29,7 @@ def gen_java_tests(
         lib_javacopts = None,
         test_javacopts = None,
         jvm_flags = None,  # Applied to tests only
+        size = "moderate",
         **kwargs):
     """Generates `java_test` rules for each file in `srcs` ending in "Test.java".
 
@@ -62,6 +63,7 @@ def gen_java_tests(
         test_javacopts = test_javacopts,
         jvm_flags = jvm_flags,
         test_plugins = test_plugins,
+        size = size,
         **kwargs
     )
 
@@ -79,6 +81,7 @@ def gen_android_local_tests(
         lib_javacopts = None,
         test_javacopts = None,  # Applied to tests only
         jvm_flags = None,
+        size = "moderate",
         **kwargs):
     """Generates `android_local_test` rules for each file in `srcs` ending in "Test.java".
 
@@ -114,6 +117,7 @@ def gen_android_local_tests(
         test_javacopts = test_javacopts,
         jvm_flags = jvm_flags,
         test_plugins = test_plugins,
+        size = size,
         **kwargs
     )
 
@@ -142,7 +146,8 @@ def _gen_java_tests(
         test_javacopts = None,
         jvm_flags = None,
         runtime_deps = None,
-        tags = None):
+        tags = None,
+        size = "moderate"):
     test_files = []
     supporting_lib_files = []
 
@@ -190,6 +195,7 @@ def _gen_java_tests(
             test_class = test_class,
             deps = test_deps,
             runtime_deps = runtime_deps,
+            size = size
         )
 
     native.test_suite(
