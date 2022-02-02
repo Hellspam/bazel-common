@@ -29,7 +29,7 @@ def gen_java_tests(
         lib_javacopts = None,
         test_javacopts = None,
         jvm_flags = None,  # Applied to tests only
-        size = "moderate",
+        size = "medium",
         **kwargs):
     """Generates `java_test` rules for each file in `srcs` ending in "Test.java".
 
@@ -81,7 +81,7 @@ def gen_android_local_tests(
         lib_javacopts = None,
         test_javacopts = None,  # Applied to tests only
         jvm_flags = None,
-        size = "moderate",
+        size = "medium",
         **kwargs):
     """Generates `android_local_test` rules for each file in `srcs` ending in "Test.java".
 
@@ -147,7 +147,7 @@ def _gen_java_tests(
         jvm_flags = None,
         runtime_deps = None,
         tags = None,
-        size = "moderate"):
+        size = "medium"):
     test_files = []
     supporting_lib_files = []
 
